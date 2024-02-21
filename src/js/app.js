@@ -32,20 +32,41 @@ function render(variables = {}) {
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
+            
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>
+            ${variables.name == null ? "Name" : variables.name}
+            ${variables.lastName == null ? "lastName" : variables.lastName}
+          </h1>
+          <h2>
+             ${variables.role == null ? "Role profesional" : variables.role}
+          </h2>
+          <h3>
+            ${variables.country == null ? "country" : variables.country}
+            ${variables.city == null ? "city" : variables.city}
+          </h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/
+            ${
+              variables.twitter == null ? "Twitter" : variables.twitter
+            }><i class="fab fa-twitter"></i></a></li>
+
+            <li><a href="https://github.com/${
+              variables.github == null ? "Github" : variables.github
+            }"><i class="fab fa-github"></i></a></li>
+
+            <li><a href="https://linkedin.com/${
+              variables.linkedin == null ? "Linkedin" : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+
+            <li><a href="https://instagram.com/${
+              variables.instagram == null ? "Instagram" : variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
-
+console.log(window.variables);
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
